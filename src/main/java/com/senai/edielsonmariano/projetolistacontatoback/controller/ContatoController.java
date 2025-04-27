@@ -24,6 +24,11 @@ public class ContatoController {
         return contatoService.listarContatosPorId(id);
     }
 
+    @GetMapping("/grupo/{grupoId}")
+    public List<Contato> listarContatosPorGrupo(@PathVariable int grupoId) {
+        return contatoService.listarContatosPorGrupo(grupoId);
+    }
+
     @PostMapping
     public Contato adicionarContato(@RequestBody Contato contato) {
         return contatoService.adicionarContato(contato);

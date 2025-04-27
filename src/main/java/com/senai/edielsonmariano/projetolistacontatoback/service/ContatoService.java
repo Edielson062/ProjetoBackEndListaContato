@@ -26,6 +26,12 @@ public class ContatoService {
         return contatoRepository.findById(id).orElseThrow(() -> new RuntimeException("Contato não encontrado"));
     }
 
+    public List<Contato> listarContatosPorGrupo(int grupoId) {
+        Grupo grupo = grupoRepository.findById(grupoId)
+                .orElseThrow(() -> new RuntimeException("Grupo não encontrado"));
+        return grupo.getContatos();
+    }
+
     public Contato adicionarContato(Contato contato) {
         // Se os grupos vierem com IDs, é uma boa garantir que os grupos existam
         if (contato.getGrupos() != null) {

@@ -1,5 +1,6 @@
 package com.senai.edielsonmariano.projetolistacontatoback.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Grupo {
     private String nome;
 
     @ManyToMany(mappedBy = "grupos")
+    @JsonIgnore
     private List<Contato> contatos;
 
     public Grupo() {}
