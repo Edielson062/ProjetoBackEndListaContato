@@ -33,7 +33,6 @@ public class ContatoService {
     }
 
     public Contato adicionarContato(Contato contato) {
-        // Se os grupos vierem com IDs, é uma boa garantir que os grupos existam
         if (contato.getGrupos() != null) {
             List<Grupo> grupos = grupoRepository.findAllById(
                     contato.getGrupos().stream()
@@ -46,7 +45,6 @@ public class ContatoService {
     }
 
     public Contato editarContato(Contato contato) {
-        // Mesma ideia para edição
         if (contato.getGrupos() != null) {
             List<Grupo> grupos = grupoRepository.findAllById(
                     contato.getGrupos().stream()

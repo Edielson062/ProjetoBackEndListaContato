@@ -28,6 +28,9 @@ public class Contato {
     )
     private List<Grupo> grupos;
 
+    @OneToMany
+    private List<Agenda> agendamentos;
+
     public Contato() {}
 
     public Contato(String nome, String telefone, String email) {
@@ -50,4 +53,7 @@ public class Contato {
 
     public List<Grupo> getGrupos() { return grupos; }
     public void setGrupos(List<Grupo> grupos) { this.grupos = grupos; }
+
+    public List<Agenda> getAgendamentos() { return agendamentos; }
+    public void setAgendamentos(List<Agenda> agendamentos) { this.agendamentos = agendamentos; }
 }
