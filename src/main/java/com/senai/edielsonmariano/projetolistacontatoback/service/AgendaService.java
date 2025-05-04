@@ -7,7 +7,9 @@ import com.senai.edielsonmariano.projetolistacontatoback.Repository.AgendaReposi
 import com.senai.edielsonmariano.projetolistacontatoback.Repository.ContatoRepository;
 import com.senai.edielsonmariano.projetolistacontatoback.enums.StatusAgendamento;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -44,7 +46,7 @@ public class AgendaService {
             List<Agenda> conflitos = agendaRepository.findConflitosAgendamento(idsContatos, inicio, fim);
 
             if (!conflitos.isEmpty()) {
-                throw new RuntimeException("Um ou mais contatos já possuem agendamentos nesse intervalo de 1 hora.");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Um ou mais contatos já possuem agendamentos nesse intervalo de 1 hora.");
             }
 
             List<Contato> contatos = contatoRepository.findAllById(idsContatos);

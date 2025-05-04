@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("agenda")
+@CrossOrigin("*")
 public class AgendaController {
     @Autowired
     private AgendaService agendaService;
